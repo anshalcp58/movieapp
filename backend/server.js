@@ -1,14 +1,12 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000; // Use environment port or default to 5000
 
 // Middleware to parse JSON
 app.use(express.json());
-app.use(cors()); // Enable CORS for all routes
 
 // Read movies data from movies.json
 let movies = [];
