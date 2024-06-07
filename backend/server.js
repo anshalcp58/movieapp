@@ -39,17 +39,7 @@ app.get('/api/movies/search', (req, res) => {
 
 // Serve a simple HTML page at the root URL
 app.get('/', (req, res) => {
-  res.send(`
-    <html>
-      <head>
-        <title>Movie App Backend</title>
-      </head>
-      <body>
-        <h1>Welcome to the Movie App Backend</h1>
-        <p>The backend is running and you can access the API endpoints at /api/movies and /api/movies/search.</p>
-      </body>
-    </html>
-  `);
+  res.json(movies);
 });
 
 // Start the server
