@@ -1,1 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/**/*",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://<YOUR_RENDER_BACKEND_URL>/api/$1"
+    }
+  ]
+}
 
