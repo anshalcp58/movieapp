@@ -1,0 +1,20 @@
+/* src/components/Favourites.css */
+
+.container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+  margin: 20px;
+}
+
+.movie-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.movie-item:last-child {
+  border-bottom: none;
+}
