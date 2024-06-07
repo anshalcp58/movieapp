@@ -1,12 +1,14 @@
-// Import necessary modules
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
-const PORT = 5000; // Use environment port or default to 3000
+const PORT = process.env.PORT || 5000; // Use environment port or default to 5000
 
 // Middleware to parse JSON
 app.use(express.json());
+app.use(cors()); // Enable CORS for all routes
 
 // Read movies data from movies.json
 let movies = [];
@@ -35,6 +37,21 @@ app.get('/api/movies/search', (req, res) => {
     movie.title.toLowerCase().includes(title.toLowerCase())
   );
   res.json(filteredMovies);
+});
+
+// Serve a simple HTML page at the root URL
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head>
+        <title>Movie App Backend</title>
+      </head>
+      <body>
+        <h1>Welcome to the Movie App Backend</h1>
+        <p>The backend is running and you can access the API endpoints at /api/movies and /api/movies/search.</p>
+      </body>
+    </html>
+  `);
 });
 
 // Start the server
